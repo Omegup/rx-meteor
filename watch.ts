@@ -2,7 +2,7 @@ import { Meteor, Subscription } from 'meteor/meteor'
 import { Mongo } from 'meteor/mongo'
 import { Observable, Subject, Subscriber } from 'rxjs'
 import { finalize } from 'rxjs/operators'
-import { omit } from './utils/lodash'
+import { omit } from 'rx-meteor-util'
 import isEqual from 'fast-deep-equal'
 
 var log: (args: () => any[]) => void = () => { }
