@@ -1,16 +1,48 @@
 {
   "name": "rx-meteor",
-  "version": "0.0.3",
+  "version": "0.1.0",
+  "description": "RxJS helpers for Meteor publications: watch cursors and publish linked documents.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Omegup/rx-meteor.git"
+  },
+  "homepage": "https://github.com/Omegup/rx-meteor#readme",
+  "bugs": {
+    "url": "https://github.com/Omegup/rx-meteor/issues"
+  },
+  "keywords": ["meteor", "rxjs", "mongo", "publish", "observe", "ddp"],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./internal": {
+      "types": "./dist/internal.d.ts",
+      "default": "./dist/internal.js"
+    }
+  },
+  "files": ["dist", "internal/package.json", "README.md", "examples"],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "pnpm run build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "pnpm run build && node --test test/*.test.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
-    "fast-deep-equal": "^3.1.3",
-    "rx-meteor-util": "0.0.5"
+    "fast-deep-equal": "^3.1.3"
   },
   "peerDependencies": {
-    "rxjs": "^6.6.7"
+    "rxjs": "^6.6.7 || ^7.0.0"
   },
   "devDependencies": {
-    "@types/meteor": "^2.8.2",
-    "mongodb": "^4.13.0",
-    "rxjs": "^6.6.7"
+    "@types/meteor": "^2.9.8",
+    "rxjs": "^6.6.7",
+    "typescript": "~5.9.3"
   }
 }
